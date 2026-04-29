@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-body bg-background text-white selection:bg-accent/30;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading uppercase tracking-wider;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-8 py-3 bg-accent text-white font-bold rounded-full transition-all duration-300 
+    hover:scale-105 hover:shadow-[0_0_20px_rgba(255,102,0,0.6)] active:scale-95 uppercase tracking-widest;
+  }
+
+  .btn-secondary {
+    @apply px-8 py-3 border-2 border-white/20 text-white font-bold rounded-full transition-all duration-300 
+    hover:bg-white hover:text-black hover:border-white active:scale-95 uppercase tracking-widest;
+  }
+
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl;
+  }
+
+  .text-glow {
+    @apply animate-glow-pulse;
+  }
+
+  .text-shadow-lg {
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.4);
+  }
+
+  .grain-overlay {
+    @apply pointer-events-none fixed inset-0 z-[9999] opacity-[0.03] mix-blend-overlay bg-grain;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-accent/50 rounded-full hover:bg-accent transition-colors;
+}
+
+/* Custom Cursor Styles */
+.custom-cursor {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ff6600;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.15s ease-out, width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+}
+
+.custom-cursor.hovered {
+  width: 60px;
+  height: 60px;
+  background-color: rgba(255, 102, 0, 0.2);
+  border-color: #ff6600;
+}
+
+/* Masonry Grid Fixes */
+.masonry-grid {
+  display: flex;
+  width: auto;
+}
+
+.masonry-grid_column {
+  padding-left: 16px; /* gutter size */
+  background-clip: padding-box;
+}
+
+/* Responsive fixes */
+@media (max-width: 640px) {
+  .btn-primary, .btn-secondary {
+    @apply px-6 py-2 text-sm;
+  }
+}
