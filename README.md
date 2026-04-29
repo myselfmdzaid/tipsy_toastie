@@ -2,11 +2,16 @@
 
 Welcome to the official repository for **Tipsy Toastie**, a cinematic brand website designed to convert digital scrolls into real-world visits. This isn't just a website; it's a digital extension of the Tipsy Toastie vibe.
 
+## 🔗 Live Experience
+**Visit the live site:** [https://tipsy-toasties.netlify.app/](https://tipsy-toasties.netlify.app/)
+
+---
+
 ## 🚀 Experience the Vibe
 - **Cinematic Visuals**: Dark mode design with neon accents and immersive video backgrounds.
 - **Content-First**: Built for the Instagram generation, featuring reel-ready visuals.
-- **Fully Responsive**: Seamless experience across mobile, tablet, and desktop.
-- **Conversion Focused**: Strategically placed CTAs to drive visits to our physical location.
+- **Fully Responsive**: Optimized for Android, iOS, and Desktop with mobile-first masonry grids.
+- **Readability Focused**: Custom text shadows ensure content is visible against dynamic video backgrounds.
 
 ## 📁 Project Structure
 ```text
@@ -47,7 +52,24 @@ Find us in **St. Julian's, Malta**.
 [Get Directions](https://maps.app.goo.gl/vZRKLs6Hhcp37NA27)
 
 ## 📸 Follow the Journey
-Stay updated with our latest creations on [Instagram](https://www.instagram.com/tipsy.toastie.official/).
+Stay updated with our latest creations on Instagram: [@tipsy.toastie.official](https://www.instagram.com/tipsy.toastie.official/)
+
+---
+
+## ⚠️ Troubleshooting & Common Issues
+
+### 1. Netlify "Permission Denied" (Exit Code 127)
+If your build fails on Netlify with `sh: 1: vite: Permission denied`, it's likely because `node_modules` were accidentally committed.
+**Fix:**
+```bash
+git rm -r --cached node_modules
+git add .gitignore
+git commit -m "Fix: Remove node_modules from tracking"
+git push origin main
+```
+
+### 2. Video Loading Errors (`net::ERR_ABORTED`)
+These are common in development due to browser streaming interruptions or local cache limits. They are usually resolved once the site is deployed to a production environment like Netlify or Vercel.
 
 ---
 *Eat. Shoot. Repeat.* 🎥🔥

@@ -2,7 +2,23 @@
 
 Follow these steps to push your project to GitHub and host it for free so anyone can visit it.
 
-## 1️⃣ Push to GitHub
+## ⚠️ CRITICAL: Fix "Permission Denied" Error
+If you see `vite: Permission denied` on Netlify, it's because the `node_modules` folder was accidentally uploaded to GitHub. **Never upload node_modules.**
+
+### How to fix it:
+1. Open your terminal in the project folder.
+2. Run these commands to remove `node_modules` from GitHub (this won't delete them from your computer):
+   ```bash
+   git rm -r --cached node_modules
+   git add .gitignore
+   git commit -m "Fix: Remove node_modules and add gitignore"
+   git push origin main
+   ```
+3. Netlify will automatically try to build again, and it should work!
+
+---
+
+## 1️⃣ Push to GitHub (First Time)
 
 1. **Create a new repository** on [GitHub](https://github.com/new).
 2. **Open your terminal** in the project folder.
