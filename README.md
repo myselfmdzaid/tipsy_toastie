@@ -10,6 +10,7 @@ Welcome to the official repository for **Tipsy Toastie**, a cinematic brand webs
 ## 🚀 Experience the Vibe
 - **Cinematic Visuals**: Dark mode design with neon accents and immersive video backgrounds.
 - **Content-First**: Built for the Instagram generation, featuring reel-ready visuals.
+- **Master Menu System**: Premium full-screen iOS-style menu with spring animations and staggered entrances.
 - **Fully Responsive**: Optimized for Android, iOS, and Desktop with mobile-first masonry grids.
 - **Readability Focused**: Custom text shadows ensure content is visible against dynamic video backgrounds.
 
