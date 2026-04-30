@@ -57,6 +57,14 @@ Stay updated with our latest creations on Instagram: [@tipsy.toastie.official](h
 
 ---
 
+## 💡 Pro Tips for Deployment
+- **Netlify Updates**: When you push changes to GitHub, Netlify usually takes **1-3 minutes** to build and deploy the new version. If you don't see changes immediately:
+    1. Wait for the build to finish in your Netlify dashboard.
+    2. **Hard Refresh** your browser (`Ctrl + F5` or `Cmd + Shift + R`) to clear the old cache.
+- **Video Assets**: Since the site uses high-quality videos, ensure they are placed in `public/assets/` to be served correctly by the CDN.
+
+---
+
 ## ⚠️ Troubleshooting & Common Issues
 
 ### 1. Netlify "Permission Denied" (Exit Code 127)

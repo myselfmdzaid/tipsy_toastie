@@ -1,6 +1,6 @@
 import PageLayout from '../components/PageLayout';
 import { motion } from 'framer-motion';
-import { Star, Quote } from 'lucide-react';
+import { Star, Quote, Instagram } from 'lucide-react';
 
 const reviews = [
   { video: '/assets/videos/reviews/video1.mp4', quote: "Worth every bite", stars: 5 },
@@ -10,6 +10,8 @@ const reviews = [
   { video: '/assets/videos/reviews/video5.mp4', quote: "Insta-worthy & delicious", stars: 5 },
   { video: '/assets/videos/reviews/video6.mp4', quote: "Truly an experience", stars: 5 },
 ];
+
+const highlightLink = "https://www.instagram.com/stories/highlights/17958491684917728/";
 
 const Reviews = () => {
   return (
@@ -39,7 +41,18 @@ const Reviews = () => {
               <source src={review.video} type="video/mp4" />
             </video>
 
-            <div className="absolute inset-0 p-8 flex flex-col justify-end bg-gradient-to-t from-black via-transparent to-transparent">
+            {/* Redirect Icon */}
+            <a 
+              href={highlightLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="absolute bottom-6 right-6 w-10 h-10 bg-black/50 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-accent transition-all duration-300 z-10 hover:scale-110"
+              title="View on Instagram"
+            >
+              <Instagram size={20} />
+            </a>
+
+            <div className="absolute inset-0 p-8 flex flex-col justify-end bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none">
               <div className="flex space-x-1 mb-4">
                 {[...Array(review.stars)].map((_, i) => (
                   <Star key={i} size={16} fill="#ff6600" className="text-accent" />

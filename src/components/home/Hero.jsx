@@ -109,12 +109,17 @@ const Hero = () => {
           <a href="https://maps.app.goo.gl/vZRKLs6Hhcp37NA27" target="_blank" rel="noopener noreferrer" className="btn-primary px-12 py-4 text-lg">
             Visit Now
           </a>
-          <button className="btn-secondary flex items-center space-x-3 px-10 py-4 text-lg group">
+          <a 
+            href="https://www.instagram.com/tipsy.toastie.official/" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="btn-secondary flex items-center space-x-3 px-10 py-4 text-lg group"
+          >
             <div className="w-8 h-8 bg-white/10 rounded-full flex items-center justify-center group-hover:bg-white group-hover:text-black transition-colors">
               <Play size={16} fill="currentColor" />
             </div>
             <span>Watch the Vibe</span>
-          </button>
+          </a>
         </motion.div>
       </motion.div>
 

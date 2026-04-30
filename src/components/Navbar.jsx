@@ -36,93 +36,114 @@ const Navbar = () => {
     setIsOpen(false);
   }, [location]);
 
+  const menuVariants = {
+    closed: {
+      x: '100%',
+      transition: {
+        type: 'spring',
+        stiffness: 300,
+        damping: 30,
+        staggerChildren: 0.05,
+        staggerDirection: -1
+      }
+    },
+    opened: {
+      x: 0,
+      transition: {
+        type: 'spring',
+        stiffness: 300,
+        damping: 30,
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    closed: { opacity: 0, x: 50 },
+    opened: { opacity: 1, x: 0 }
+  };
+
   return (
-    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${scrolled ? 'bg-black/80 backdrop-blur-lg py-3' : 'bg-transparent py-6'}`}>
+    <nav className={`fixed top-0 left-0 w-full z-[100] transition-all duration-500 ${scrolled ? 'bg-black/80 backdrop-blur-lg py-3' : 'bg-transparent py-6'}`}>
       <div className="container mx-auto px-6 flex justify-between items-center">
         {/* Logo */}
-        <Link to="/" className="flex items-center space-x-2 group">
+        <Link to="/" className="flex items-center space-x-2 group relative z-[101]">
           <img src="/assets/logo/logo.png" alt="Tipsy Toastie" className="h-10 w-auto group-hover:scale-110 transition-transform duration-300" />
           <span className="text-xl font-heading tracking-widest text-white group-hover:text-accent transition-colors">TIPSY TOASTIE</span>
         </Link>
 
-        {/* Desktop Links */}
-        <div className="hidden md:flex items-center space-x-8">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              to={link.path}
-              className={`text-sm font-semibold tracking-widest hover:text-accent transition-colors ${location.pathname === link.path ? 'text-accent' : 'text-white'}`}
-            >
-              {link.name}
-            </Link>
-          ))}
-          <a
-            href="https://maps.app.goo.gl/vZRKLs6Hhcp37NA27" // Placeholder for actual maps link
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary shadow-[0_0_15px_rgba(255,102,0,0.4)]"
-          >
-            Visit Now
-          </a>
-        </div>
-
-        {/* Mobile Menu Toggle */}
-        <button className="md:hidden text-white" onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
+        {/* Hamburger Icon */}
+        <button 
+          onClick={() => setIsOpen(!isOpen)}
+          className="relative z-[101] w-10 h-10 flex flex-col justify-center items-center space-y-1.5 focus:outline-none"
+          aria-label="Toggle Menu"
+        >
+          <motion.span 
+            animate={isOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
+            className="w-8 h-0.5 bg-white block transition-transform"
+          />
+          <motion.span 
+            animate={isOpen ? { opacity: 0 } : { opacity: 1 }}
+            className="w-8 h-0.5 bg-white block transition-opacity"
+          />
+          <motion.span 
+            animate={isOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
+            className="w-8 h-0.5 bg-white block transition-transform"
+          />
         </button>
-      </div>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, x: '100%' }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: '100%' }}
-            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed inset-0 top-0 bg-black/98 backdrop-blur-2xl z-40 md:hidden flex flex-col items-center justify-center space-y-8 p-6 overflow-y-auto"
-          >
-            <button 
-              className="absolute top-8 right-8 text-white p-2"
-              onClick={() => setIsOpen(false)}
+        {/* Full Screen Menu Overlay */}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              variants={menuVariants}
+              initial="closed"
+              animate="opened"
+              exit="closed"
+              className="fixed inset-0 w-full h-screen bg-background/95 backdrop-blur-xl flex flex-col items-center justify-center z-[100]"
             >
-              <X size={32} />
-            </button>
-            <div className="flex flex-col items-center space-y-8 w-full max-h-screen py-20">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  to={link.path}
-                  onClick={() => setIsOpen(false)}
-                  className={`text-3xl font-heading tracking-widest hover:text-accent transition-colors ${location.pathname === link.path ? 'text-accent' : 'text-white'}`}
-                >
-                  {link.name}
-                </Link>
-              ))}
-              <a
-                href="https://maps.app.goo.gl/vZRKLs6Hhcp37NA27"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setIsOpen(false)}
-                className="btn-primary w-full text-center py-5 text-xl"
-              >
-                Visit Now
-              </a>
-              
-              <div className="flex space-x-6 pt-8">
-                <a 
-                  href="https://www.instagram.com/tipsy.toastie.official/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-white"
-                >
-                  <Instagram size={24} />
-                </a>
+              <div className="flex flex-col items-center space-y-8">
+                {navLinks.map((link) => (
+                  <motion.div key={link.name} variants={itemVariants}>
+                    <Link
+                      to={link.path}
+                      onClick={() => setIsOpen(false)}
+                      className="text-5xl md:text-7xl font-heading tracking-[0.2em] text-white hover:text-accent transition-all duration-300 hover:scale-110 block text-center"
+                    >
+                      {link.name}
+                    </Link>
+                  </motion.div>
+                ))}
+
+                <motion.div variants={itemVariants} className="pt-12">
+                  <a
+                    href="https://www.instagram.com/tipsy.toastie.official/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center space-x-3 px-8 py-4 bg-white/5 border border-white/10 rounded-full text-white hover:bg-accent hover:border-accent transition-all duration-300 group shadow-lg"
+                  >
+                    <Instagram size={24} className="group-hover:scale-110 transition-transform" />
+                    <span className="font-heading tracking-widest text-xl">FOLLOW THE VIBE</span>
+                  </a>
+                </motion.div>
+                
+                <motion.div variants={itemVariants} className="mt-8">
+                  <a
+                    href="https://maps.app.goo.gl/vZRKLs6Hhcp37NA27"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setIsOpen(false)}
+                    className="btn-primary px-12 py-4 text-xl shadow-[0_0_20px_rgba(255,102,0,0.4)]"
+                  >
+                    VISIT NOW
+                  </a>
+                </motion.div>
               </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
     </nav>
   );
 };

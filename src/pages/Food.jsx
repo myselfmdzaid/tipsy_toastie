@@ -1,15 +1,18 @@
 import PageLayout from '../components/PageLayout';
 import { motion } from 'framer-motion';
+import { Instagram } from 'lucide-react';
 
 const videos = [
-  { src: '/assets/videos/food/video1.mp4', tag: 'Signature' },
   { src: '/assets/videos/food/video2.mp4', tag: 'Cheesy' },
-  { src: '/assets/videos/food/video3.mp4', tag: 'Spicy' },
   { src: '/assets/videos/food/video4.mp4', tag: 'Signature' },
+  { src: '/assets/videos/food/video3.mp4', tag: 'Spicy' },
+  { src: '/assets/videos/food/video1.mp4', tag: 'Signature' },
   { src: '/assets/videos/food/video5.mp4', tag: 'Cheesy' },
   { src: '/assets/videos/food/video6.mp4', tag: 'Spicy' },
   { src: '/assets/videos/food/video7.mp4', tag: 'Signature' },
 ];
+
+const highlightLink = "https://www.instagram.com/stories/highlights/18402486082176764/";
 
 const Food = () => {
   return (
@@ -45,7 +48,18 @@ const Food = () => {
               </span>
             </div>
 
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
+            {/* Redirect Icon */}
+            <a 
+              href={highlightLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="absolute bottom-6 right-6 w-10 h-10 bg-black/50 backdrop-blur-md rounded-full flex items-center justify-center text-white hover:bg-accent transition-all duration-300 z-10 hover:scale-110"
+              title="View on Instagram"
+            >
+              <Instagram size={20} />
+            </a>
+
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8 pointer-events-none">
               <h3 className="text-3xl font-heading tracking-wider">TASTE THE VIBE</h3>
             </div>
           </motion.div>

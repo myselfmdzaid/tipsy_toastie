@@ -22,8 +22,15 @@ export default {
       animation: {
         'glow-pulse': 'glow-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'float': 'float 6s ease-in-out infinite',
+        'theme-rainbow': 'theme-rainbow 8s linear infinite',
       },
       keyframes: {
+        'theme-rainbow': {
+          '0%, 100%': { color: '#ff6600' }, // Neon Orange
+          '25%': { color: '#ff8c00' },      // Amber
+          '50%': { color: '#ffcc00' },      // Gold
+          '75%': { color: '#ff4400' },      // Deep Orange
+        },
         'glow-pulse': {
           '0%, 100%': { opacity: 1, textShadow: '0 0 10px #ff6600, 0 0 20px #ff6600' },
           '50%': { opacity: 0.8, textShadow: '0 0 20px #ff6600, 0 0 40px #ff6600' },

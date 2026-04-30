@@ -34,12 +34,12 @@ const ValueStrip = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.2 }}
-              className="flex flex-col items-center text-center group"
+              className="flex flex-col items-center text-center"
             >
-              <div className="mb-6 p-4 rounded-2xl bg-white/5 group-hover:bg-accent/10 transition-colors duration-300">
+              <div className="mb-6 p-4 rounded-2xl bg-white/5">
                 {item.icon}
               </div>
-              <h3 className="text-2xl font-heading mb-2 tracking-wide group-hover:text-accent transition-colors">
+              <h3 className="text-2xl font-heading mb-2 tracking-wide animate-theme-rainbow">
                 {item.title}
               </h3>
               <p className="text-white/60 font-body">
