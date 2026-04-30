@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { Instagram, Navigation } from 'lucide-react';
+import { Instagram, Navigation, Utensils } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const FinalCTA = () => {
   return (
@@ -25,12 +26,22 @@ const FinalCTA = () => {
             Now experience it in real life.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center space-y-6 sm:space-y-0 sm:space-x-8">
+          <div className="flex flex-col lg:flex-row items-center justify-center space-y-6 lg:space-y-0 lg:space-x-8">
+            <Link 
+              to="/menu-catering"
+              className="btn-primary px-12 py-5 text-xl w-full lg:w-auto shadow-[0_0_30px_rgba(255,102,0,0.5)]"
+            >
+              <div className="flex items-center justify-center space-x-3">
+                <Utensils size={24} />
+                <span>Menu & Brochure</span>
+              </div>
+            </Link>
+
             <a 
               href="https://maps.app.goo.gl/vZRKLs6Hhcp37NA27" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="btn-primary px-16 py-5 text-xl w-full sm:w-auto shadow-[0_0_30px_rgba(255,102,0,0.5)]"
+              className="btn-secondary px-12 py-5 text-xl w-full lg:w-auto"
             >
               <div className="flex items-center justify-center space-x-3">
                 <Navigation size={24} />
@@ -42,11 +53,11 @@ const FinalCTA = () => {
               href="https://www.instagram.com/tipsy.toastie.official/" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="btn-secondary px-16 py-5 text-xl w-full sm:w-auto"
+              className="btn-secondary px-12 py-5 text-xl w-full lg:w-auto"
             >
               <div className="flex items-center justify-center space-x-3">
                 <Instagram size={24} />
-                <span>Follow on Instagram</span>
+                <span>Follow the Vibe</span>
               </div>
             </a>
           </div>

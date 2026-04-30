@@ -14,6 +14,7 @@ import Food from './pages/Food';
 import Reviews from './pages/Reviews';
 import Art from './pages/Art';
 import TipsySprays from './pages/TipsySprays';
+import MenuCatering from './pages/MenuCatering';
 
 function App() {
   const location = useLocation();
@@ -36,6 +37,7 @@ function App() {
           <Route path="/reviews" element={<Reviews />} />
           <Route path="/art" element={<Art />} />
           <Route path="/tipsy-sprays" element={<TipsySprays />} />
+          <Route path="/menu-catering" element={<MenuCatering />} />
         </Routes>
       </AnimatePresence>
 

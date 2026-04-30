@@ -26,7 +26,7 @@ const Location = () => {
             </h2>
             
             <p className="text-xl text-white/60 font-body leading-relaxed max-w-lg text-shadow-lg">
-              Located in the heart of St. Julian's, Malta. 
+              Located in the heart of Pietà, Msida Marina, Malta. 
               Find us where the lights are neon and the vibe is always right.
             </p>
 
@@ -66,7 +66,7 @@ const Location = () => {
                   <div className="w-20 h-20 bg-accent rounded-full flex items-center justify-center mx-auto mb-6 animate-bounce shadow-[0_0_30px_rgba(255,102,0,0.5)]">
                     <MapPin size={40} className="text-white" />
                   </div>
-                  <h4 className="text-2xl font-heading mb-2">St. Julian's</h4>
+                  <h4 className="text-2xl font-heading mb-2">Pietà, Msida Marina</h4>
                   <p className="text-white/40 uppercase tracking-widest text-sm">Malta</p>
                 </div>
               </div>

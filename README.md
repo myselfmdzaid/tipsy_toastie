@@ -7,6 +7,20 @@ Welcome to the official repository for **Tipsy Toastie**, a cinematic brand webs
 
 ---
 
+### 🛠️ Latest Project Updates (May 2026)
+- **Dedicated Menu Hub**: Moved all menu and catering content to a high-performance dedicated page (`/menu-catering`).
+- **Android & Mobile First**: Overhauled the entire UI/UX with a focus on Android devices, including larger tap targets and optimized layouts.
+- **Minimalist Black Navigation**: Replaced blurred overlays with a solid, high-contrast black menu for superior readability.
+- **Enhanced Media Gallery**: Refined the full-screen lightbox with integrated **View Full** and **Download** capabilities, repositioned for better mobile ergonomics.
+- **Sticker-Style Visuals**: Integrated high-visibility sticker PNGs in the background to add brand personality without distracting from the content.
+- **Universal Navigation**: Synced the new Menu & Brochure links across the Navbar, Footer, and Floating Action Buttons.
+- **Location & Performance**: Updated brand location to **Pietà, Msida Marina** and optimized assets (JPG conversion) for faster load times.
+
+### ✨ New Sections
+- **Menu**: Interactive menu display with high-quality images and full pricing.
+- **Catering & Experiences**: Comprehensive catering packages and unique experience add-ons (Paint-Eat-Sip, etc.).
+- **Media Gallery**: Integrated lightbox for viewing the full menu and catering brochure.
+
 ## 🚀 Experience the Vibe
 - **Cinematic Visuals**: Dark mode design with neon accents and immersive video backgrounds.
 - **Content-First**: Built for the Instagram generation, featuring reel-ready visuals.
@@ -37,7 +51,7 @@ tipsy-toasties/
 
 1. **Clone the repo**:
    ```bash
-   git clone https://github.com/your-username/tipsy-toasties.git
+   git clone https://github.com/myselfmdzaid/tipsy-toasties.git
    ```
 2. **Install dependencies**:
    ```bash
@@ -49,7 +63,7 @@ tipsy-toasties/
    ```
 
 ## 📍 Location
-Find us in **St. Julian's, Malta**.
+Find us in **Pietà, Msida Marina, Malta**.
 [Get Directions](https://maps.app.goo.gl/vZRKLs6Hhcp37NA27)
 
 ## 📸 Follow the Journey

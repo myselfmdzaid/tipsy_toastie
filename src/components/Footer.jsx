@@ -31,6 +31,7 @@ const Footer = () => {
           <div>
             <h4 className="text-white font-heading text-xl mb-6 tracking-wider">Experience</h4>
             <ul className="space-y-4">
+              <li><Link to="/menu-catering" className="text-white/60 hover:text-accent transition-colors font-bold text-accent">MENU & BROCHURE</Link></li>
               <li><Link to="/you" className="text-white/60 hover:text-accent transition-colors">YOU</Link></li>
               <li><Link to="/food" className="text-white/60 hover:text-accent transition-colors">FOOD</Link></li>
               <li><Link to="/reviews" className="text-white/60 hover:text-accent transition-colors">REVIEWS</Link></li>
@@ -51,7 +52,27 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="hover:text-accent transition-colors"
                 >
-                  Tipsy Toastie, St. Julian's, Malta
+                  Tipsy Toastie, Pietà, Msida Marina, Malta
+                </a>
+              </li>
+              <li className="flex items-center space-x-3 text-white/60">
+                <Phone size={20} className="text-accent flex-shrink-0" />
+                <a 
+                  href="https://wa.me/35679099962" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:text-accent transition-colors"
+                >
+                  +356 7909 9962
+                </a>
+              </li>
+              <li className="flex items-center space-x-3 text-white/60">
+                <Mail size={20} className="text-accent flex-shrink-0" />
+                <a 
+                  href="mailto:tipsytoastie@gmail.com" 
+                  className="hover:text-accent transition-colors"
+                >
+                  tipsytoastie@gmail.com
                 </a>
               </li>
               <li className="flex items-center space-x-3 text-white/60">

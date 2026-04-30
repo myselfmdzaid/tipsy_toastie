@@ -4,11 +4,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Instagram } from 'lucide-react';
 
 const navLinks = [
-  { name: 'YOU', path: '/you' },
-  { name: 'FOOD', path: '/food' },
-  { name: 'REVIEWS', path: '/reviews' },
-  { name: 'ART', path: '/art' },
-  { name: 'TIPSY SPRAYS', path: '/tipsy-sprays' },
+  { name: 'MENU & BROCHURE', path: '/menu-catering', desc: 'The full taste experience', priority: true },
+  { name: 'FOOD', path: '/food', desc: 'Our edible masterpieces', priority: true },
+  { name: 'YOU', path: '/you', desc: 'Real people, real vibes', priority: false },
+  { name: 'REVIEWS', path: '/reviews', desc: 'What they say about us', priority: false },
+  { name: 'ART', path: '/art', desc: 'More than just food', priority: false },
+  { name: 'TIPSY SPRAYS', path: '/tipsy-sprays', desc: 'Our signature twist', priority: false },
 ];
 
 const Navbar = () => {
@@ -97,48 +98,57 @@ const Navbar = () => {
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              variants={menuVariants}
-              initial="closed"
-              animate="opened"
-              exit="closed"
-              className="fixed inset-0 w-full h-screen bg-background/95 backdrop-blur-xl flex flex-col items-center justify-center z-[100]"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 w-full h-screen bg-black z-[100] flex flex-col"
             >
-              <div className="flex flex-col items-center space-y-8">
-                {navLinks.map((link) => (
-                  <motion.div key={link.name} variants={itemVariants}>
-                    <Link
-                      to={link.path}
-                      onClick={() => setIsOpen(false)}
-                      className="text-5xl md:text-7xl font-heading tracking-[0.2em] text-white hover:text-accent transition-all duration-300 hover:scale-110 block text-center"
+              <div className="container mx-auto px-8 pt-32 pb-12 h-full flex flex-col">
+                {/* Clean List Menu */}
+                <div className="flex flex-col space-y-6">
+                  {navLinks.map((link, idx) => (
+                    <motion.div
+                      key={link.name}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: idx * 0.1 }}
                     >
-                      {link.name}
-                    </Link>
-                  </motion.div>
-                ))}
+                      <Link
+                        to={link.path}
+                        onClick={() => setIsOpen(false)}
+                        className="block group"
+                      >
+                        <h3 className="text-3xl font-heading tracking-widest text-white group-hover:text-accent transition-colors">
+                          {link.name}
+                        </h3>
+                        <div className="h-0.5 w-0 bg-accent group-hover:w-full transition-all duration-300 mt-1" />
+                      </Link>
+                    </motion.div>
+                  ))}
+                </div>
 
-                <motion.div variants={itemVariants} className="pt-12">
+                {/* Footer Section */}
+                <div className="mt-auto space-y-6 pb-8">
                   <a
                     href="https://www.instagram.com/tipsy.toastie.official/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center space-x-3 px-8 py-4 bg-white/5 border border-white/10 rounded-full text-white hover:bg-accent hover:border-accent transition-all duration-300 group shadow-lg"
+                    className="flex items-center space-x-3 text-white/60 hover:text-accent transition-colors group"
                   >
-                    <Instagram size={24} className="group-hover:scale-110 transition-transform" />
+                    <Instagram size={24} />
                     <span className="font-heading tracking-widest text-xl">FOLLOW THE VIBE</span>
                   </a>
-                </motion.div>
-                
-                <motion.div variants={itemVariants} className="mt-8">
+                  
                   <a
                     href="https://maps.app.goo.gl/vZRKLs6Hhcp37NA27"
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => setIsOpen(false)}
-                    className="btn-primary px-12 py-4 text-xl shadow-[0_0_20px_rgba(255,102,0,0.4)]"
+                    className="btn-primary w-full py-5 text-xl text-center block shadow-[0_0_20px_rgba(255,102,0,0.4)]"
                   >
                     VISIT NOW
                   </a>
-                </motion.div>
+                </div>
               </div>
             </motion.div>
           )}

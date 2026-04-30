@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const Experience = () => {
   return (
@@ -44,7 +45,7 @@ const Experience = () => {
               the music is always a vibe, and the food is always a masterpiece.
             </p>
             <div className="pt-4">
-              <button className="btn-primary">Discover the Art</button>
+              <Link to="/menu-catering" className="btn-primary inline-block">Discover the Menu</Link>
             </div>
           </motion.div>
         </div>

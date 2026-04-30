@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { Play, Navigation } from 'lucide-react';
+import { Play, Utensils } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const FloatingCTA = () => {
   const [show, setShow] = useState(false);
@@ -17,15 +18,13 @@ const FloatingCTA = () => {
     <>
       {/* Mobile Sticky Bottom CTA */}
       <div className="fixed bottom-0 left-0 w-full p-4 z-50 md:hidden">
-        <a 
-          href="https://maps.app.goo.gl/vZRKLs6Hhcp37NA27"
-          target="_blank"
-          rel="noopener noreferrer"
+        <Link 
+          to="/menu-catering"
           className="btn-primary w-full flex items-center justify-center space-x-2 py-4 shadow-[0_-10px_20px_rgba(0,0,0,0.5)]"
         >
-          <Navigation size={20} />
-          <span>Visit Now</span>
-        </a>
+          <Utensils size={20} />
+          <span>Menu & Brochure</span>
+        </Link>
       </div>
 
       {/* Desktop Floating Actions */}
@@ -49,15 +48,13 @@ const FloatingCTA = () => {
               <span className="font-bold pr-4">Watch Latest Reel</span>
             </a>
 
-            <a 
-              href="https://maps.app.goo.gl/vZRKLs6Hhcp37NA27"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link 
+              to="/menu-catering"
               className="btn-primary flex items-center justify-center space-x-2 py-4 shadow-2xl"
             >
-              <Navigation size={20} />
-              <span>Visit Now</span>
-            </a>
+              <Utensils size={20} />
+              <span>Menu & Brochure</span>
+            </Link>
           </motion.div>
         )}
       </AnimatePresence>
